@@ -14,7 +14,7 @@ public class Hookable
 	public void before(Scenario scenario) throws UnknownHostException
 	{
 		
-		HTMLReportGenerator.TestSuiteStart("E:\\Report\\AddToCart.html", "Amazon");
+		HTMLReportGenerator.TestSuiteStart("F:\\Report\\Login.html", "Amazon");
 		HTMLReportGenerator.TestCaseStart(scenario.getName(), scenario.getStatus());
 		System.out.println("----------------------Scenario Start-----------------");
 	

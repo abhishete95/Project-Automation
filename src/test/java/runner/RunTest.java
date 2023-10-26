@@ -11,7 +11,7 @@ import cucumber.api.junit.Cucumber;
 					
 				    plugin="pretty",
 					features="src/test/resources/BusinessLogic",
-					tags="@RegressionTest",
+					tags="@SmokeTest",
 					glue="cucumbermap",
 					monochrome=true
 						

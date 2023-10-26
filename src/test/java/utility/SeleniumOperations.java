@@ -1,10 +1,14 @@
 package utility;
 
+import java.io.File;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -33,10 +37,11 @@ try
 
 	 System.setProperty(strbrwsr,config.getDriverPathChrome());
 	
+	 
 	 driver=new ChromeDriver();
 	 
 	driver.manage().window().maximize();
-//driver.manage().timeouts().implicitlyWait(config.getImplicitlyWait(), TimeUnit.SECONDS);
+ //driver.manage().timeouts().implicitlyWait(config.getImplicitlyWait(), TimeUnit.SECONDS);
 
 outputParameters.put("STATUS", "PASS");
 outputParameters.put("MESSAGE", "methoduse: browserLaunch,Input Given: " +inputParameters[0].toString());
@@ -204,7 +209,27 @@ public static Hashtable<String,Object> switchTab(Object[]inputParameters)
 }
 
 
+public static Hashtable<String,Object> takeScreenShot(Object[]inputParameters) 
 
+{
+	try
+	{
+	String path=(String)inputParameters[0];
+	TakesScreenshot sc=driver;
+	File trg=sc.getScreenshotAs(OutputType.FILE);
+	File src=new File(".//Screenshot//photo.png");
+	FileUtils.copyFile(src, trg);
+	driver.manage().timeouts().implicitlyWait(config.getImplicitlyWait(), TimeUnit.SECONDS);
+	outputParameters.put("STATUS", "PASS");
+	outputParameters.put("MESSAGE", "methoduse: takeScreenShot,Input Given: " +inputParameters[0].toString());
+	}
+	catch(Exception e)
+	{
+		outputParameters.put("STATUS", "FAIL");
+		outputParameters.put("MESSAGE", "methoduse: sendKeyOnUi,Input Given: " +inputParameters[1].toString());
+	}
+	return outputParameters;
+}
 
 	
 	/* public static void main(String[] args) throws InterruptedException

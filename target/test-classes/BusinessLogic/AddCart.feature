@@ -15,5 +15,6 @@ Scenario: User Add to card product
 When user click on All button
 When user click on Fire TV
 When user click on Fire Tv Cube
+When user select Tv 
 When user click on Add to Cart button
 Then Application Shows product Add to cart successfully

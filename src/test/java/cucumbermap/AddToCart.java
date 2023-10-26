@@ -32,16 +32,27 @@ public class AddToCart
 	public void user_click_on_Fire_Tv_Cube() throws Throwable
 	{
 		Object [] input27=new Object[1];
-		input27[0]="//*[text()='Fire TV Cube']";
+		input27[0]="(//*[text()='See all Fire TV devices'])[1]";
 		Hashtable<String,Object> output27=SeleniumOperations.clickOnElement(input27);
 		HTMLReportGenerator.StepDetails(output27.get("STATUS").toString(),"^user click on Fire Tv Cube$" , output27.get("MESSAGE").toString());
 	}
+	
+	@When("^user select Tv$")
+	public void user_select_Tv() throws Throwable {
+		Object [] input50=new Object[1];
+		input50[0]="(//*[@class='a-truncate-cut'])[9]";
+		Hashtable<String,Object> output50=SeleniumOperations.clickOnElement(input50);
+		HTMLReportGenerator.StepDetails(output50.get("STATUS").toString(),"^user select Tv$" , output50.get("MESSAGE").toString());
+	    
+	}
+
+
 
 	@When("^user click on Add to Cart button$")
 	public void user_click_on_Add_to_Cart_button() throws Throwable
 	{
 		Object [] input28=new Object[1];
-		input28[0]="//*[@id='add-to-cart-button']";
+		input28[0]="//*[@id='submit.add-to-cart']";
 		Hashtable<String,Object> output28=SeleniumOperations.clickOnElement(input28);
 		HTMLReportGenerator.StepDetails(output28.get("STATUS").toString(),"^user click on Add to Cart button$" , output28.get("MESSAGE").toString());
 	}
@@ -53,8 +64,8 @@ public class AddToCart
 	public void user_add_product_to_cart_successfully() throws Throwable
 	{
 		Object [] input29=new Object[2];
-		input29[0]="Cart subtotal";
-		input29[1]="//*[@id='sw-subtotal-item-count']";
+		input29[0]="Added to Cart";
+		input29[1]="//*[text()='Added to Cart']";
 		Hashtable<String,Object> output29=SeleniumOperations.validationByGetText(input29);	
 		HTMLReportGenerator.StepDetails(output29.get("STATUS").toString(),"^application shows Login successfully$", output29.get("MESSAGE").toString());
 	}
