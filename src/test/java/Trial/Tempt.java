@@ -44,17 +44,10 @@ public static void main(String[] args) throws IOException, InterruptedException
 		
 		
 		
-		TakesScreenshot ts=(TakesScreenshot)driver;
-		File trg=ts.getScreenshotAs(OutputType.FILE);
-		File src=new File("F:\\ScreenShot\\amazon1.jpg");
+		TakesScreenshot sc=(TakesScreenshot) driver;
+		File trg=sc.getScreenshotAs(OutputType.FILE);
+		File src=new File("F:\\ScreenShot\\screen.png");
 		FileUtils.copyFile(trg, src);
-		
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
-	WebElement ele=	driver.findElement(By.xpath("//div[@id='desktop-grid-3']"));
-	File tr=ele.getScreenshotAs(OutputType.FILE);
-	File sr=new File("F:\\ScreenShot\\computer.jpg");
-	FileUtils.copyFile(tr, sr);
 		
 		
 	//Draw Border
